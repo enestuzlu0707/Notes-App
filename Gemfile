@@ -75,3 +75,7 @@ gem 'kaminari'
 
 # Quick styling bootstrap for kaminari
 gem 'bootstrap4-kaminari-views'
+
+# Makes Rails' link_to confirm: 'foo' build a Bootstrap Modal instead of calling the browser's confirm() API.
+gem 'data-confirm-modal'
+

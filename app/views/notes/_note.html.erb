@@ -31,7 +31,7 @@
         <%= link_to edit_note_path(note), class: 'btn btn-outline-primary' do %>
           Edit
         <% end %>
-        <%= link_to note_path(note), class: 'btn btn-danger', method: :delete do %>
+        <%= link_to note_path(note), class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } do %>
           Delete
         <% end %>
       </div>
