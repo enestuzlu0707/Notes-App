@@ -1,31 +1,27 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import Datetime from 'react-datetime';
 import moment from 'moment';
 
-export default class DateTimePicker extends Component {
-  constructor(props) {
-    super(props);
+const DateTimePicker = props => {
+  const [name, setName] = useState(props.name);
+  const [value, setValue] = useState(props.value);
 
-    this.state = {
-      name: this.props.name,
-      value: this.props.value,
-    };
-  }
+  return (
+    <Datetime
+      timeConstraints={{ minutes: { step: 15 } }}
+      value={moment(value)}
+      onChange={e => setValue(e.valueOf())}
+      defaultValue={new Date()}
+      closeOnSelect
+      inputProps={{ readOnly: true, name: name }}
+    />
+  );
+};
 
-  onChange = e => {
-    this.setState({ value: e.valueOf() });
-  };
+DateTimePicker.propTypes = {
+  name: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+};
 
-  render() {
-    return (
-      <Datetime
-        timeConstraints={{ minutes: { step: 5 } }}
-        value={moment(this.state.value)}
-        onChange={this.onChange}
-        defaultValue={new Date()}
-        closeOnSelect
-        inputProps={{ readOnly: true, name: this.state.name }}
-      />
-    );
-  }
-}
+export default DateTimePicker;

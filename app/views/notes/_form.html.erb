@@ -1,0 +1,28 @@
+<div class="row bg-white border mb-3">
+  <div class="col py-2">
+    <%= form_for @note do |f| %>
+      <div class="form-group">
+        <%= f.label :title %><br />
+        <%= f.text_field :title, placeholder: 'Place the note title', autofocus: true, required: true, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :content %><br />
+        <%= f.text_area :content, size: '20x5', placeholder: 'Place the note content', required: true, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :priority %><br />
+        <%= f.select :priority, priorities, { include_blank: 'Select priority...' }, { class: 'form-control' } %>
+      </div>
+      <div class="form-group">
+        <%= f.label :date_taken %><br />
+        <%= react_component 'DateTimePicker',
+              {
+                value: @note.date_taken,
+                name: "#{f.object_name}[date_taken]",
+              } %>
+      </div>
+
+      <%= f.submit 'Save', class: 'btn btn-primary btn-block' %>
+    <% end %>
+  </div>
+</div>

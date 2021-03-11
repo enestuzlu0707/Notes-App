@@ -28,7 +28,7 @@ class NotesController < AuthController
   def update
     if @note.update(note_params)
       flash[:notice] = 'Note was successfully updated'
-      redirect_to note_path(@note)
+      redirect_to notes_path
     else
       render 'edit'
     end
@@ -49,6 +49,8 @@ class NotesController < AuthController
   end
 
   def note_params
-    params.require(:note).permit(:title, :content, :priority, :date_taken)
+    params['note']['date_taken'] = Time.strptime(params['note']['date_taken'], '%m/%d/%Y %I:%M %p').to_s
+
+    params.require(:note).permit(:title, :content, :date_taken, :priority).merge(user: current_user)
   end
 end

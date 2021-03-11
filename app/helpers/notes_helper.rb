@@ -1,6 +1,6 @@
 module NotesHelper
   def note_date(date)
-    date.strftime('Posted on %b, %m %Y - %H:%M')
+    date.strftime('Posted on %b, %d %Y - %H:%M')
   end
 
   def badge_class_for_priority(priority)
@@ -14,5 +14,9 @@ module NotesHelper
     else
       'secondary'
     end
+  end
+
+  def priorities
+    Note.priorities.keys.map { |priority| [priority.humanize, priority]}
   end
 end

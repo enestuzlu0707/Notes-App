@@ -1,0 +1,13 @@
+<div class="row justify-content-center bg-white border py-3 mb-2">
+  <div class="col-sm-8">
+    <h4>Create Note</h4>
+  </div>
+  <div class="col-sm-4 text-right">
+    <%= link_to notes_path, class: 'btn btn-primary' do %>
+      <%= fa_icon 'arrow-left', class: 'mr-2' %>
+      Back
+    <% end %>
+  </div>
+</div>
+
+<%= render 'form' %>

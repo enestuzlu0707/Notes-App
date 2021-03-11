@@ -1,10 +1,12 @@
 class Note < ApplicationRecord
+  after_initialize :init
+
   enum priority: {
     low: 'low',
     medium: 'medium',
     high: 'high',
   }
-  
+    
   belongs_to :user  
 
   paginates_per 10
@@ -16,6 +18,11 @@ class Note < ApplicationRecord
   validates :user_id, presence: true
   validates :priority, presence: true
   validates :priority, inclusion: { in: priorities.keys }
+
+  def init
+    self.date_taken ||= Time.now
+  end
+
 
   def self.notes_for_user(user)
     Note.where(user: user)

@@ -18,7 +18,9 @@
         <% end %>
       </div>
       <div class="nav-item <%= active_class('/notes/new') %>">
-        <a href="" class="nav-link">Create note</a>
+        <%= link_to new_note_path, class: 'nav-link' do %>
+          Create Note
+        <% end %>
       </div>
       <div class="nav-item">
         <%= button_to destroy_user_session_path, class: 'btn btn-outline-primary', method: :delete do %>
