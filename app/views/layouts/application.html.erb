@@ -12,7 +12,9 @@
   </head>
 
   <body class="d-flex flex-column h-100">
+    <%= render 'shared/nav' if user_signed_in? %>
     <main class="container">
+      <%= render 'shared/notification' %>
       <%= yield %>
     </main>
   </body>
