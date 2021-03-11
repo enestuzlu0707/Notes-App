@@ -62,3 +62,10 @@ gem 'font-awesome-rails'
 
 # A gem to automate using jQuery with Rails
 gem 'jquery-rails'
+
+# Flexible authentication solution for Rails with Warden
+gem 'responders', '~> 2.4', '>= 2.4.1' # needed for ruby 2.3.8
+gem 'devise'
+
+# A Ruby gem to load environment variables from `.env`.
+gem 'dotenv-rails'

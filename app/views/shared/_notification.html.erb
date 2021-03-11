@@ -1,0 +1,6 @@
+<% flash.each do |key, value| %>
+  <div class="alert <%= bootstrap_class_for_flash(key) %> alert-dismissable fade show">
+    <%= value %>
+    <button class="close" data-dismiss="alert">&times;</button>
+  </div>
+<% end %>
