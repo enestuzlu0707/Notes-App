@@ -82,3 +82,6 @@ gem 'data-confirm-modal'
 # Integrate React.js with Rails views and controllers, the asset pipeline, or webpacker.
 gem 'webpacker'
 gem 'react-rails'
+
+# Textacular exposes full text search capabilities from PostgreSQL, and allows you to declare full text indexes. Textacularwill extend ActiveRecord with named_scope methods making searching easy and fun! 
+gem 'textacular', '~> 5.0'

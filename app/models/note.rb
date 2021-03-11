@@ -22,7 +22,10 @@ class Note < ApplicationRecord
   def init
     self.date_taken ||= Time.now
   end
-
+  
+  def self.searchable_columns
+    [:title, :content]
+  end
 
   def self.notes_for_user(user)
     Note.where(user: user)

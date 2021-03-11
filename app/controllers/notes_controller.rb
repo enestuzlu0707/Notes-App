@@ -2,10 +2,11 @@ class NotesController < AuthController
   before_action :set_note, only: [:edit, :update, :show, :destroy]
 
   def index
-    @notes = Note
-      .notes_for_user(current_user)
-      .order(date_taken: :desc)
-      .page(params[:page])
+    @search = params[:search]
+    
+    query_params = params.merge(user: current_user)
+
+    @notes = NotesQuery.new(Note, query_params).perform_search
   end
 
   def new
@@ -49,8 +50,14 @@ class NotesController < AuthController
   end
 
   def note_params
-    params['note']['date_taken'] = Time.strptime(params['note']['date_taken'], '%m/%d/%Y %I:%M %p').to_s
+    parse_date_taken
 
-    params.require(:note).permit(:title, :content, :date_taken, :priority).merge(user: current_user)
+    params.require(:note).permit(:title, :content, :date_taken, :priority, :search).merge(user: current_user)
+  end
+
+  def parse_date_taken
+    unless params['note']['date_taken'].blank?
+      params['note']['date_taken'] = Time.strptime(params['note']['date_taken'], '%m/%d/%Y %I:%M %p').to_s
+    end
   end
 end

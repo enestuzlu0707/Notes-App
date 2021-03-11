@@ -1,0 +1,8 @@
+<div class="row justify-content-center bg-white border rounded py-3 mb-2">
+    <%= form_tag notes_path, method: :get, class: 'input-group col-md' do %>
+      <%= text_field_tag :search, @search, placeholder: 'Search...', class: 'form-control my-0 py-1' %>
+      <span class='input-group-append'>
+        <%= submit_tag 'Search', class: 'btn btn-outline-secondary' %>
+      </span>
+    <% end %>
+</div>
