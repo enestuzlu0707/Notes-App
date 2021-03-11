@@ -52,4 +52,13 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # A modern web server and application server for Ruby, Python and Node.js, optimized for performance, low memory usage and ease of use.
-gem "passenger", ">= 5.0.25", require: "phusion_passenger/rack_handler"
+gem 'passenger', '>= 5.0.25', require: 'phusion_passenger/rack_handler'
+
+# Bootstrap 4 rubygem for Rails / Sprockets / Hanami / etc https://rubygems.org/gems/bootstrap
+gem 'bootstrap', '~> 4.4.1'
+
+# The font-awesome font bundled as an asset for the rails asset pipeline
+gem 'font-awesome-rails'
+
+# A gem to automate using jQuery with Rails
+gem 'jquery-rails'
