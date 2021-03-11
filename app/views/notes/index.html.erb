@@ -1,10 +1,11 @@
-<div class="row justify-content-center bg-white border py-3 mb-2">
+<div class="row justify-content-center bg-white border rounded py-3 mb-2">
   <div class="col-sm-8">
     <h4>Listing all notes</h4>
   </div>
   <div class="col-sm-4 text-right">
-    <%= button_to new_note_path, class: 'btn btn-primary' do %>
-      New note
+    <%= link_to new_note_path, class: 'btn btn-primary' do %>
+      <%= fa_icon 'file', class: 'mr-2' %>
+      New Note
     <% end %>
   </div>
 </div>

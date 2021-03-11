@@ -1,0 +1,34 @@
+<div class="row justify-content-center bg-white border py-3 mb-2">
+  <div class="col-sm-8">
+    <h4>Note - #<%= @note.id %></h4>
+  </div>
+  <div class="col-sm-4 text-right">
+    <%= link_to notes_path, class: 'btn btn-primary' do %>
+      <%= fa_icon 'arrow-left', class: 'mr-2' %>
+      Back
+    <% end %>
+  </div>
+</div>
+
+<div class="row bg-white border rounded mb-3">
+  <div class="col py-2">
+    <div class="row">
+      <div class="d-flex col justify-content-between align-content-center">
+        <strong> <%= @note.title %> </strong>
+        <span class="badge badge-<%= badge_class_for_priority(@note.priority) %>">
+          <%= @note.priority %>
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p class="text-break"> <%= @note.content %> </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col text-right text-secondary">
+        <small><%= note_date(@note.date_taken) %></small>
+      </div>
+    </div>
+  </div>
+</div>

@@ -2,7 +2,10 @@ class NotesController < AuthController
   before_action :set_note, only: [:edit, :update, :show, :destroy]
 
   def index
-    @notes = Note.notes_for_user(current_user).page(params[:page])
+    @notes = Note
+      .notes_for_user(current_user)
+      .order(date_taken: :desc)
+      .page(params[:page])
   end
 
   def new
