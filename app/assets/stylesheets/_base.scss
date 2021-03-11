@@ -1,3 +1,9 @@
+@import "base/colors";
+
+body {
+  background-color: $light-gray;
+}
+
 .container {
   padding-top: 60px;
 }
