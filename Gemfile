@@ -69,3 +69,9 @@ gem 'devise'
 
 # A Ruby gem to load environment variables from `.env`.
 gem 'dotenv-rails'
+
+# ⚡ A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for Ruby webapps
+gem 'kaminari'
+
+# Quick styling bootstrap for kaminari
+gem 'bootstrap4-kaminari-views'

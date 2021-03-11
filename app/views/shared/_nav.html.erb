@@ -7,19 +7,21 @@
   </button>
   <div class="navbar-collapse collapse" id="responsive-navbar-nav">
     <div class="ml-auto justify-content-end navbar-nav">
-      <div class="nav-item active">
+      <div class="nav-item <%= active_class('/') %>">
         <%= link_to root_path, class: 'nav-link' do %>
           Home <span class="sr-only">(current)</span>
         <% end %>
       </div>
-      <div class="nav-item">
-        <a href="" class="nav-link">Notes</a>
+      <div class="nav-item <%= active_class('/notes') %>">
+        <%= link_to notes_path, class: 'nav-link' do %>
+          Notes
+        <% end %>
       </div>
-      <div class="nav-item">
+      <div class="nav-item <%= active_class('/notes/new') %>">
         <a href="" class="nav-link">Create note</a>
       </div>
       <div class="nav-item">
-        <%= link_to destroy_user_session_path, class: 'btn btn-outline-primary', type: 'button', method: :delete do %>
+        <%= button_to destroy_user_session_path, class: 'btn btn-outline-primary', method: :delete do %>
           Logout
         <% end %>
       </div>

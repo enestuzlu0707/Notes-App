@@ -13,4 +13,8 @@ module ApplicationHelper
       type.to_s
     end
   end
+
+  def active_class(link_path)
+    current_page?(link_path) ? "active" : ""
+  end
 end

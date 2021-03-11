@@ -1,0 +1,40 @@
+<div class="row bg-white border mb-3">
+  <div class="col">
+    <div class="row my-2">
+      <div class="col">
+        <strong>You - <%= note.user_email %></strong>
+      </div>
+    </div>
+    <div class="row my-2">
+      <div class="d-flex col justify-content-between align-content-center">
+        <strong><%= note.title %></strong>
+        <span class="badge badge-<%= badge_class_for_priority(note.priority) %>">
+          <%= note.priority %>
+        </span>
+      </div>
+    </div>
+    <div class="row my-2">
+      <div class="col">
+        <%= note_date(note.date_taken) %>
+      </div>
+    </div>
+    <div class="row my-2">
+      <div class="col">
+        <p><%= note.content %></p>
+      </div>
+    </div>
+    <div class="row my-3">
+      <div class="col text-right">
+        <%= link_to note_path(note), class: 'btn btn-primary' do %>
+          Show
+        <% end %>
+        <%= link_to edit_note_path(note), class: 'btn btn-outline-primary' do %>
+          Edit
+        <% end %>
+        <%= link_to note_path(note), class: 'btn btn-danger', method: :delete do %>
+          Delete
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
