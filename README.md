@@ -26,19 +26,25 @@ I'm using [RVM](https://rvm.io/) to handle with Ruby enviroments. For this repos
   POSTGRES_HOST='<POSTGRES_HOST_HERE>'
 ```
 
-2. Setup database:
+2. Install required gems for project:
+
+```bash
+  bundle install
+```
+
+3. Setup database:
 
 ```bash
   rails db:setup
 ```
 
-3. Run app using Passenger:
+4. Run app using Passenger:
 
 ```bash
   bundle exec passenger start
 ```
 
-4. Open your web browser and go to `http://localhost:3000`.
+5. Open your web browser and go to `http://localhost:3000`.
 
 ---
 
