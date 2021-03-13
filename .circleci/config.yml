@@ -20,9 +20,9 @@ jobs:
 
       # Install psql
       - run:
-        command: |
-          sudo apt-get update
-          sudo apt-get install -y postgresql-client
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y postgresql-client
 
       # Restore Cached Dependencies
       - type: cache-restore
