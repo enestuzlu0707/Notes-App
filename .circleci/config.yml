@@ -37,7 +37,11 @@ jobs:
       - run: dockerize -wait tcp://localhost:5432 -timeout 1m
 
       # Setup the database
-      - run: bundle exec rails db:setup
+      - run:
+        name: Database Setup
+        command: |
+          bundle exec rails db:create
+          bundle exec rails db:structure:load
 
       # Run the tests
       - run: bundle exec rspec
