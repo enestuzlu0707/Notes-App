@@ -5,13 +5,13 @@ jobs:
   build:
     working_directory: ~/notes_app
     docker:
-      - image: circleci/ruby:2.3.8
+      - image: circleci/ruby:2.3.8-node-browsers
         environment:
           POSTGRES_HOST: localhost
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
           RAILS_ENV: test
-      - image: postgres:9.5
+      - image: postgres:10
         environment:
           POSTGRES_USER: localhost
           POSTGRES_DB: notes_app_test
