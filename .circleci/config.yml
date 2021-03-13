@@ -8,14 +8,13 @@ jobs:
       - image: circleci/ruby:2.3.8-node-browsers
         environment:
           POSTGRES_HOST: localhost
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: notes_app
           RAILS_ENV: test
       - image: postgres:10
         environment:
-          POSTGRES_USER: localhost
+          POSTGRES_USER: notes_app
           POSTGRES_DB: notes_app_test
-          POSTGRES_PASSWORD: postgres
+          POSTGRES_PASSWORD: ''
     steps:
       - checkout
 
