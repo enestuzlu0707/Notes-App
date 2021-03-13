@@ -1,5 +1,6 @@
 class NotesController < AuthController
   before_action :set_note, only: [:edit, :update, :show, :destroy]
+  before_action :check_owner, only: [:edit, :update, :show, :destroy]
 
   def index
     @search = params[:search]
@@ -58,6 +59,13 @@ class NotesController < AuthController
   def parse_date_taken
     unless params['note']['date_taken'].blank?
       params['note']['date_taken'] = Time.strptime(params['note']['date_taken'], '%m/%d/%Y %I:%M %p').to_s
+    end
+  end
+
+  def check_owner
+    unless @note.user_id == current_user.id
+      flash[:error] = 'Oops! You are not the owner of this note'
+      redirect_to notes_path
     end
   end
 end
