@@ -18,6 +18,12 @@ jobs:
     steps:
       - checkout
 
+      # Install psql
+      - run:
+        command: |
+          sudo apt-get update
+          sudo apt-get install -y postgresql-client
+
       # Restore Cached Dependencies
       - type: cache-restore
         name: Restore bundle cache
